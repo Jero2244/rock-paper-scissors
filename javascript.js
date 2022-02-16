@@ -37,7 +37,7 @@ function playRound(playerSelection, computerPlay){
 
 function game(){
     let round;
-    let winnerComputer = 0;
+    let winnerComputer = 0; // this two variables count who won each round
     let winnerUser = 0
     for (let i = 0; i < 5; i++){
         let computerSelection = computerPlay(); // calls for computerPlay ro get the choice of the computer 
@@ -45,14 +45,14 @@ function game(){
         playerSelection = playerSelection.toLowerCase() // converts it to lower case for easier if statements in playRound
         round = playRound(playerSelection, computerSelection);
         console.log(round) //prints the return of playRound
-        if(round.startsWith('You won')){ //keeps score checking the string of playRound to see who won 
+        if(round.startsWith('You won')){ //keeps score checking the return string of playRound to see who won 
             winnerUser++
         }else if(round.startsWith('You lost')){
             winnerComputer++
         }
 
-        if (winnerComputer == 3 || winnerUser == 3 ||i == 4){           //need a way to declare a winner
-            if(winnerComputer == 3){
+        if (winnerComputer == 3 || winnerUser == 3 ||i == 4){           //the first if checks to see if the rounds should be finished(Could be a function?)
+            if(winnerComputer == 3){                                   //the nested if returns who won the game using the variables winner    
                 return('You lost the game')
             }else if(winnerUser == 3){
                 return 'You won the game'
